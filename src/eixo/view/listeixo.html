@@ -19,9 +19,11 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-hover" id="table-eixo">
-                            <thead class="thead-dark">
+                            <thead class="thead-light">
                                 <tr>
-                                    <th scope="col " class="text-center"></th>
+                                    <th scope="col " class="text-center">ID</th>
+                                    <th scope="col " class="text-center">NOME</th>
+                                    <th scope="col " class="text-center">AÇÕES</th>
                                 </tr>
                             </thead>
 
@@ -32,3 +34,27 @@
         </div>
     </div>
 </div>
+<div id="modaleixo" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="my-modal-title">Title</h5>
+                <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Content</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-dark" data-dismiss="modal">
+                    <i class="far fa-times-circle"></i>
+                    Fechar
+                </button>
+                <button class="btn btn-sucess btn-save"><i class="far fa-save"></i> Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="src/eixo/controler/neweixo.js"></script>
