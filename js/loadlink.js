@@ -4,6 +4,7 @@ $(document).ready(function() {
         e.preventDefault();
         let url = $(this).attr('href');
 
-        alert(url);
+        $('#conteudo').empty();
+        $('#conteudo').load(url);
     })
 })
