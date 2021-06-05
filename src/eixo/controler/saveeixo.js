@@ -21,7 +21,7 @@ $(document).ready(function() {
                     confirmButtonText: 'OK'
                 })
 
-                $('#modal-eixo').modal('hide')
+                $('#modaleixo').modal('hide')
                 $('#eixo').DataTable().ajax.reload()
             }
         })
