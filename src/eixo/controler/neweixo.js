@@ -6,7 +6,9 @@ $(document).ready(function() {
         $('.modal-body').empty()
 
         $('.modal-title').append('Adicionar novo eixo tecnológico')
-
+        $('.modal-body').load('src/eixo/view/formeixo.html')
+        $('.btn-save').show()
+        $('.btn-save').attr('data-operation', 'insert')
         $('#modaleixo').modal('show')
     })
 })
