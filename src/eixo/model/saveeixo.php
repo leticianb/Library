@@ -39,10 +39,10 @@
         } else {
             
             try{
-                $stmt = $pdo->prepare('UPDATE EIXO SET NOME = :nome WHERE IDEIXO = :id');
+                $stmt = $pdo->prepare('UPDATE eixo SET nome = :nome WHERE ideixo = :id');
                 $stmt->execute(array(
-                    ':id' => $IDEIXO,
-                    ':nome' => utf8_decode($requestData['NOME'])
+                    ':id' => $ideixo,
+                    ':nome' => utf8_decode($requestdata['nome'])
                 ));
                 $dados = array(
                     "tipo" => 'success',

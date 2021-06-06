@@ -15,14 +15,14 @@ $(document).ready(function() {
             url: 'src/eixo/model/saveeixo.php',
             success: function(dados) {
                 Swal.fire({
-                    title: 'Library',
+                    title: 'library',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'
                 })
 
                 $('#modaleixo').modal('hide')
-                $('#eixo').DataTable().ajax.reload()
+
             }
         })
     })
