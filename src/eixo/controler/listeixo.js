@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#eixo').DataTable({
+    $('#table-eixo').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
