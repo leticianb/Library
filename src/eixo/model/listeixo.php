@@ -7,26 +7,26 @@
     
     $requestData = $_REQUEST;
 
-    //Obter as colunas vindas do resquest
+    
     $colunas = $requestData['columns'];
 
-    //Preparar o comando sql para obter os dados da categoria
+    
     $sql = "SELECT ideixo, nome FROM eixo WHERE 1=1 ";
 
-    //Obter o total de registros cadastrados
+    
     $resultado = $pdo->query($sql);
     $qtdeLinhas = $resultado->rowCount();
     
-    //Verificando se há filtro determinado
+    
     $filtro = $requestData['search']['value'];
     if( !empty( $filtro ) ){
-        //Montar a expressão lógica que irá compor os filtros
-        //Aqui você deverá determinar quais colunas farão parte do filtro
+        
+        
         $sql .= " AND (ideixo LIKE '$filtro%' ";
         $sql .= " OR nome LIKE '$filtro%') ";
     }
     
-    //Obter o total dos dados filtrados
+    
     $resultado = $pdo->query($sql);
     $totalFiltrados = $resultado->rowCount();
     
