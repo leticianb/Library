@@ -25,7 +25,7 @@ $(document).ready(function() {
                         $('#nome').val(dado.dados.nome)
                         $('#ideixo').val(dado.dados.ideixo)
                     })
-                    $('.btn-save').shows()
+                    $('.btn-save').show()
                     $('#modaleixo').modal('show')
                 } else {
                     Swal.fire({
