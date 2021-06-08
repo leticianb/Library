@@ -31,7 +31,7 @@ $(document).ready(function() {
                             confirmButtonText: 'OK'
                         })
 
-                        $('#table-eixo'.DataTable().ajax.reload())
+                        $('#table-eixo').DataTable().ajax.reload()
                     }
                 })
             }
