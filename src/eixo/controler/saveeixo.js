@@ -22,7 +22,7 @@ $(document).ready(function() {
                 })
 
                 $('#modaleixo').modal('hide')
-
+                $('#table-eixo').DataTable().ajax.reload()
             }
         })
     })
