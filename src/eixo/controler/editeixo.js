@@ -31,7 +31,7 @@ $(document).ready(function() {
                     Swal.fire({
                         title: 'Library',
                         text: dado.mensagem,
-                        icon: dado.tipo,
+                        type: dado.tipo,
                         confirmButtonText: 'OK'
                     })
                 }
