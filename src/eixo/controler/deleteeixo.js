@@ -27,7 +27,7 @@ $(document).ready(function() {
                         Swal.fire({
                             title: 'Library',
                             text: dados.mensagem,
-                            type: dados.tipo,
+                            icon: dados.tipo,
                             confirmButtonText: 'OK'
                         })
 
