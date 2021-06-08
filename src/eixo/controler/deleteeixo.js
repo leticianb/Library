@@ -13,7 +13,7 @@ $(document).ready(function() {
             icon: 'question',
             showCancelButton: true,
             confirmButtonText: 'Sim',
-            cancelButtonText: 'Não',
+            cancelButtonText: 'Não'
 
         }).then((result => {
             if (result.value) {
@@ -26,8 +26,8 @@ $(document).ready(function() {
                     success: function(dados) {
                         Swal.fire({
                             title: 'Library',
-                            text: dado.mensagem,
-                            type: dado.tipo,
+                            text: dados.mensagem,
+                            type: dados.tipo,
                             confirmButtonText: 'OK'
                         })
 

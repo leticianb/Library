@@ -8,13 +8,13 @@
     $resultado = $pdo -> query($sql);
     if($resultado){
         $dados = array(
-            'tipo' => 'success'
+            'tipo' => 'success',
             'mensagem' =>'Registro excluído com sucesso'
         );
     }
     else{
         $dados = array(
-            'tipo' => 'error'
+            'tipo' => 'error',
             'mensagem' =>'Não foi possível excluir o registro'
         );
     }
