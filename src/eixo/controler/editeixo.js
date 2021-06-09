@@ -26,7 +26,7 @@ $(document).ready(function() {
                         $('#ideixo').val(dado.dados.ideixo)
                     })
                     $('.btn-save').show()
-                        ('.btn-save').removeAttr('data-operation')
+                    $('.btn-save').removeAttr('data-operation')
                     $('#modaleixo').modal('show')
                 } else {
                     Swal.fire({
