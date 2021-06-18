@@ -11,15 +11,15 @@ $(document).ready(function() {
             "url": "libs/DataTables/pt_br.json"
         },
         "columns": [{
-                "data": 'idtipo_usuário',
+                "data": 'idtipo_usuario',
                 "className": 'text-center'
             },
             {
-                "data": 'descrição_usuario',
+                "data": 'descricao',
                 "className": 'text-center'
             },
             {
-                "data": 'idtipo_usuário',
+                "data": 'idtipo_usuario',
                 "orderable": false,
                 "searchable": false,
                 "className": 'text-center',

@@ -6,7 +6,7 @@
     $requestdata = $_REQUEST;
 
     
-    if(empty($requestdata['descrição_usuario'])){
+    if(empty($requestdata['descricao'])){
         
         $dados = array(
             "tipo" => 'error',
@@ -14,16 +14,16 @@
         );
     } else {
         
-        $id = isset($requestdata['idtipo_usuário']) ? $requestdata['idtipo_usuário'] : '';
+        $id = isset($requestdata['idtipo_usuario']) ? $requestdata['idtipo_usuario'] : '';
         $operacao = isset($requestdata['operacao']) ? $requestdata['operacao'] : '';
 
         
         if($operacao == 'insert'){
             
             try{
-                $stmt = $pdo->prepare('INSERT INTO tipo_usuário (descrição_usuario) VALUES (:a)');
+                $stmt = $pdo->prepare('INSERT INTO tipo_usuario (descricao) VALUES (:a)');
                 $stmt->execute(array(
-                    ':a' => utf8_decode($requestdata['descrição_usuario'])
+                    ':a' => utf8_decode($requestdata['descricao'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -38,10 +38,10 @@
         } else {
             
             try{
-                $stmt = $pdo->prepare('UPDATE tipo_usuário SET descrição_usuario = :a WHERE idtipo_usuário = :id');
+                $stmt = $pdo->prepare('UPDATE tipo_usuario SET descricao = :a WHERE idtipo_usuario = :id');
                 $stmt->execute(array(
                     ':id' => $id,
-                    ':a' => utf8_decode($requestdata['descrição_usuario'])
+                    ':a' => utf8_decode($requestdata['descricao'])
                 ));
                 $dados = array(
                     "tipo" => 'success',

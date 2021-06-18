@@ -3,8 +3,8 @@
     
     include('../../conexao/conn.php');
 
-    $id = $_REQUEST['idtipo_usuário'];
-    $sql = "DELETE FROM tipo_usuário WHERE idtipo_usuário = $id";
+    $id = $_REQUEST['idtipo_usuario'];
+    $sql = "DELETE FROM tipo_usuario WHERE idtipo_usuario = $id";
     $resultado = $pdo -> query($sql);
     if($resultado){
         $dados = array(

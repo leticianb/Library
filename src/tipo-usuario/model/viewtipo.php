@@ -4,10 +4,10 @@
     include('../../conexao/conn.php');
 
     // Executo a recepção do id a ser buscado no banco de dados
-    $id = $_REQUEST['descrição_usuario'];
+    $id = $_REQUEST['descricao'];
 
     // Gero a querie de consulta no banco de dados
-    $sql = "SELECT * FROM tipo_usuário WHERE idtipo_usuário = $id";
+    $sql = "SELECT * FROM tipo_usuario WHERE idtipo_usuario = $id";
 
     // Executar nossa querie de consulta ao banco de dados
     $resultado = $pdo->query($sql);

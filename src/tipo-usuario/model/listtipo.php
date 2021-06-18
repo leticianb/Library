@@ -11,7 +11,7 @@
     $colunas = $requestData['columns'];
 
     
-    $sql = "SELECT idtipo_usuário, descrição_usuario FROM tipo_usuário WHERE 1=1 ";
+    $sql = "SELECT idtipo_usuario, descricao FROM tipo_usuario WHERE 1=1 ";
 
     
     $resultado = $pdo->query($sql);
@@ -22,8 +22,8 @@
     if( !empty( $filtro ) ){
         
         
-        $sql .= " AND (idtipo_usuário LIKE '$filtro%' ";
-        $sql .= " OR descrição_usuario LIKE '$filtro%') ";
+        $sql .= " AND (idtipo_usuario LIKE '$filtro%' ";
+        $sql .= " OR descricao LIKE '$filtro%') ";
     }
     
     
