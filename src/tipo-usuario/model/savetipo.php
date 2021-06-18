@@ -1,6 +1,5 @@
 <?php
 
-   
     include('../../conexao/conn.php');
 
     
@@ -28,7 +27,7 @@
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'ETipo usuário cadastrado com sucesso.'
+                    "mensagem" => 'Tipo usuário cadastrado com sucesso.'
                 );
             } catch(PDOException $e) {
                 $dados = array(
