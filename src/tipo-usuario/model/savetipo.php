@@ -22,13 +22,13 @@
         if($operacao == 'insert'){
             
             try{
-                $stmt = $pdo->prepare('INSERT INTO tipo_usuário (descricao_usuario) VALUES (:a)');
+                $stmt = $pdo->prepare('INSERT INTO tipo_usuário (descrição_usuario) VALUES (:a)');
                 $stmt->execute(array(
-                    ':a' => utf8_decode($requestdata['descricao_usuario'])
+                    ':a' => utf8_decode($requestdata['descrição_usuario'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Eixo tecnológico cadastrado com sucesso.'
+                    "mensagem" => 'ETipo usuário cadastrado com sucesso.'
                 );
             } catch(PDOException $e) {
                 $dados = array(
@@ -41,7 +41,7 @@
             try{
                 $stmt = $pdo->prepare('UPDATE tipo_usuário SET descrição_usuario = :a WHERE idtipo_usuário = :id');
                 $stmt->execute(array(
-                    ':id' => $ideixo,
+                    ':id' => $id,
                     ':a' => utf8_decode($requestdata['descrição_usuario'])
                 ));
                 $dados = array(
