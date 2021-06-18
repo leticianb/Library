@@ -1,10 +1,10 @@
 <?php
 
 //variaveis
-$hostname="fdb29.awardspace.net";
-$dbname="3799876_library";
-$username="3799876_library";
-$password="COM123ida@";
+$hostname="sql200.epizy.com";
+$dbname="epiz_28912886_library";
+$username="epiz_28912886";
+$password="3KwlAZYHVA";
 
 try{
     $pdo = new PDO('mysql:host='.$hostname.';dbname='.$dbname,$username,$password);
