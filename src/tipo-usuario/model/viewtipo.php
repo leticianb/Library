@@ -4,7 +4,7 @@
     include('../../conexao/conn.php');
 
     // Executo a recepção do id a ser buscado no banco de dados
-    $id = $_REQUEST['descricao'];
+    $id = $_REQUEST['idtipo_usuario'];
 
     // Gero a querie de consulta no banco de dados
     $sql = "SELECT * FROM tipo_usuario WHERE idtipo_usuario = $id";

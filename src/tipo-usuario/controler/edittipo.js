@@ -9,7 +9,7 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Edição do tipo usu-ario')
+        $('.modal-title').append('Edição do tipo usuário')
 
         let idtipo_usuario = `idtipo_usuario=${$(this).attr('id')}`
 
