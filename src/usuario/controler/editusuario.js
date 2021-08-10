@@ -63,7 +63,7 @@ $(document).ready(function() {
                         })
 
                     })
-                    $('.btn-save').hide()
+                    $('.btn-save').show()
                     $('#modalusuario').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
