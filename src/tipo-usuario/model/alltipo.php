@@ -6,7 +6,7 @@
    
     $dados = array();
 
-    $sql = "SELECT * FROM tipo_usuario ORDER BY nome ASC";
+    $sql = "SELECT * FROM tipo_usuario ORDER BY descricao ASC";
 
 
     $resultado = $pdo->query($sql);
