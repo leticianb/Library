@@ -15,7 +15,7 @@
         );
     } else {
         // Caso não exista campo em vazio, vamos gerar a requisição
-        $id = isset($requestData['idcusuario']) ? $requestData['idusuario'] : '';
+        $id = isset($requestData['idusuario']) ? $requestData['idusuario'] : '';
         $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
 
         // Verifica se é para cadastra um nvo registro
