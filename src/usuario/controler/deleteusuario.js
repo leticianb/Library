@@ -21,7 +21,7 @@ $(document).ready(function() {
                     type: 'POST',
                     dataType: 'json',
                     assync: true,
-                    data: idcurso,
+                    data: idusuario,
                     url: 'src/usuario/model/deleteusuario.php',
                     success: function(dados) {
                         Swal.fire({

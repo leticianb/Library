@@ -42,7 +42,7 @@ $(document).ready(function() {
                             }
                         })
                         $('#tipo_usuario_idtipo_usuario').attr('readonly', 'true')
-                        var tipo = dado.dados.curso_idcurso
+                        var curso = dado.dados.curso_idcurso
                         $.ajax({
                             type: 'POST',
                             dataType: 'json',
@@ -50,7 +50,7 @@ $(document).ready(function() {
                             success: function(dados) {
                                 for (const dado of dados) {
                                     if (dado.idcurso == curso) {
-                                        $('#curso_idcurso').append(`<option value="${dado.idtcurso}">${dado.nome}</option>`)
+                                        $('#curso_idcurso').append(`<option value="${dado.idcurso}">${dado.nome}</option>`)
                                     }
                                 }
                             }

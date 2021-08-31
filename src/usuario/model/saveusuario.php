@@ -25,7 +25,7 @@
                 $stmt = $pdo->prepare('INSERT INTO usuario (nome, email, senha, tipo_usuario_idtipo_usuario, curso_idcurso) VALUES (:a, :b, :c, :d, :e)');
                 $stmt->execute(array(
                     ':a' => utf8_decode($requestData['nome']),
-                    ':b' => $requestData['email']
+                    ':b' => $requestData['email'],
                     ':c' => md5($requestData['senha']),
                     ':d' => $requestData['tipo_usuario_idtipo_usuario'],
                     ':e' => $requestData['curso_idcurso']
@@ -43,11 +43,11 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE uruario SET nome = :a, email = :b, senha = :c, tipo_usuario_idtipo_usuario = :d, curso_idcurso = :e, WHERE idcurso = :id');
+                $stmt = $pdo->prepare('UPDATE usuario SET nome = :a, email = :b, senha = :c, tipo_usuario_idtipo_usuario = :d, curso_idcurso = :e, WHERE idcurso = :id');
                 $stmt->execute(array(
                     ':id' => $id,
                     ':a' => utf8_decode($requestData['nome']),
-                    ':b' => $requestData['email']
+                    ':b' => $requestData['email'],
                     ':c' => md5($requestData['senha']),
                     ':d' => $requestData['tipo_usuario_idtipo_usuario'],
                     ':e' => $requestData['curso_idcurso']
