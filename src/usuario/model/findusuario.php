@@ -4,9 +4,10 @@
     include('../../conexao/conn.php');
 
    
+    
     $dados = array();
 
-    $sql = "SELECT * FROM usuario  WHERE nome LIKE '%$nome%' ORDER BY nome ASC";
+    $sql = "SELECT * FROM usuario  WHERE nome LIKE '%".$_REQUEST['nome']."%' ORDER BY nome ASC";
 
 
     $resultado = $pdo->query($sql);

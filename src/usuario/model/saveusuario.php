@@ -32,18 +32,18 @@
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Curso cadastrado com sucesso.'
+                    "mensagem" => 'Curso cadastrado com sucesso.'.$e
                 );
             } catch(PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o cadastro do curso.'
+                    "mensagem" => 'Não foi possível efetuar o cadastro do curso.'.$e
                 );
             }
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE usuario SET nome = :a, email = :b, senha = :c, tipo_usuario_idtipo_usuario = :d, curso_idcurso = :e, WHERE idcurso = :id');
+                $stmt = $pdo->prepare('UPDATE usuario SET nome = :a, email = :b, senha = :c, tipo_usuario_idtipo_usuario = :d, curso_idcurso = :e WHERE idusuario = :id');
                 $stmt->execute(array(
                     ':id' => $id,
                     ':a' => utf8_decode($requestData['nome']),
@@ -54,12 +54,12 @@
                 ));
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Curso atualizado com sucesso.'
+                    "mensagem" => 'Curso atualizado com sucesso.'.$e
                 );
             } catch (PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
-                    "mensagem" => 'Não foi possível efetuar o alteração do curso.'
+                    "mensagem" => 'Não foi possível efetuar o alteração do curso.'.$e
                 );
             }
         }
