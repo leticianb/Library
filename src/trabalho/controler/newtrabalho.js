@@ -2,6 +2,8 @@ $(document).ready(function() {
     $('.btn-new').click(function(e) {
         e.preventDefault()
 
+        alert('Função ativa...')
+
         $('.modal-title').empty()
         $('.modal-body').empty()
 
