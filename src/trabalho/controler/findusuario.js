@@ -23,6 +23,8 @@ $(document).ready(function() {
                     }
                     $('.find').click(function(e) {
                         e.preventDefault()
+
+
                         $('#autores').empty()
                         $('#autor').empty()
                         $('#listar').append(`<input type="text" name="" id="${dado.idusuario}" class="form-control find" value="${dado.nome}">`)
