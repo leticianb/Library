@@ -13,7 +13,7 @@ $(document).ready(function() {
             success: function(dados) {
                 for (const dado of dados) {
                     $('#resultadoautor').append(`<input type="text" name="nome" id="nome" class="form-control" value="${dado.nome}" disabled></input>`)
-                    $('#resultadoautor-btn').append(`<button class="btn btn-dark unpin_user" id="" nome="" type="button"><i class="fas fa-user-times"></i></button>`)
+                    $('#resultadoautor-btn').append(`<button class="btn btn-dark unpin_user" id="" nome="" type="button"><i class="fas fa-trash-alt"></i></button>`)
                 }
             }
         })
