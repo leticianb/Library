@@ -32,15 +32,30 @@
             <input type="text" name="autor" id="autor" class="form-control" placeholder="Digite o nome do autor...">
         </div>
         <div class="col-2">
-            <button class="btn btn-primary btn-find"><i class="fas fa-search"></i> Buscar</button>
+            <button class="btn btn-primary btn-find btn-block"><i class="fas fa-search"></i> Buscar</button>
         </div>
     </div>
-    <div class="form-group" id="autores">
 
+    <div class="from-group row">
+        <div class="col-12 mb-3" id="autores">
+        </div>
+        <br><br>
+        <div class="col-2" id="autores-btn">
+        </div>
     </div>
 
-    <div class="form-group" id="listar"></div>
 
+    <div class="row">
+        <div class="col-12">
+            <label>Autores: </label>
+        </div>
+    </div>
+
+    <div class="from-group row">
+        <div class="col-12" id="resultadoautor">
+        </div>
+        <div class="col-2" id="resultadoautor-btn">
+        </div>
     </div>
     <div class="form-group">
         <label>Arquivo</label>
@@ -50,3 +65,5 @@
 </form>
 
 <script src="src/trabalho/controler/findusuario.js"></script>
+<script src="src/trabalho/controler/fixarusuario.js"></script>
+<script src="src/trabalho/controler/usuarioup.js"></script>
