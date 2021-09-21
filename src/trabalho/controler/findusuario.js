@@ -1,16 +1,29 @@
-$(document).ready(function() {
+function listAuthor() {
+
+    $('.alert').click(function(e) {
+        e.preventDefault()
+        let id = $(this).attr('data-id')
+        let nome = $(this).attr('data-name')
+
+        $('#listar').append(`
+                                <div class="alert alert-primary">${nome}</div>
+                                <input type="hidden" name="usuario_idusuario" value="${id}"/>
+                            `)
+        $('#' + id).hide()
+
+
+    })
+}
+
+$('document').ready(function() {
 
     $('#autor').keyup(function(e) {
         e.preventDefault()
 
         let nome = `nome=${$(this).val()}`
 
-        $('#autores').empty()
-        fix_user = 0
-
-
         if ($(this).val().length >= 3) {
-
+            $('#autores').empty()
             $.ajax({
                 dataType: 'json',
                 type: 'POST',
@@ -18,20 +31,17 @@ $(document).ready(function() {
                 data: nome,
                 url: 'src/usuario/model/findusuario.php',
                 success: function(dados) {
-                    $('#autores').empty()
-                    $('#autores-btn').empty()
-                    if (Object.values(dados).length === 0) {
-                        $('#autores').append(`<input type="text" name="" id="" class="form-control" value="Nenhum resultado encontrado" disabled>`)
-                    } else {
-
-                        for (const dado of dados) {
-                            $('#autores').append(`<input type="text" name="" id="" class="form-control" value="${dado.nome}" disabled></input>`)
-                            $('#autores').append(`<input type="hidden" name="idusuario" id="idusuario" value="">`)
-                            $('#autores-btn').append(`<button class="btn btn-dark fix_user" id="${dado.idusuario}" type="button"><i class="fas fa-check-circle"></i></button>`)
-                        }
+                    for (const dado of dados) {
+                        // Pode-se usar tanto id="" & name="" como também data-id=""" & data-name=""
+                        $('#autores').append(`<div data-name="${dado.nome}" data-id="${dado.idusuario}" class="alert alert-secondary">${dado.nome}</div>`)
+                            // div não é editável e por isso colocar uma div
                     }
+                    listAuthor()
                 }
             })
+        } else {
+            $('#autores').empty()
         }
+
     })
 })
