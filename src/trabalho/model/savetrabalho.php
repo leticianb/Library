@@ -35,10 +35,14 @@
 
             // tenta mover o arquivo para o destino
             if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
-                
+                // $retorno = array ('mensagem' => 'Arquivo salvo com sucesso em : ' . $destino);
+                // include '../conexao.php';
+                // $documents = utf8_decode($_POST['nameDocuments']);
+                // $sqlInsert = mysqli_query($conecta, "INSERT INTO lions_documents (nameDocuments, fileDocuments) VALUES ('".$documents."', '".$novoNome."')");
+                // header('Location: ../../sistema/returnSuccess.php');
                 // Scripts de persistência no banco de dados .....
                 // Obter a nossa conexão com o banco de dados
-                include('../../conexao/conn.php');
+                include('../../conexao/con.php');
 
                 // Obter os dados enviados do formulário via $_REQUEST
                 $requestData = $_REQUEST;
@@ -55,13 +59,13 @@
                     $ID = isset($requestData['idtrabalho']) ? $requestData['idtrabalho'] : '';
                     $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
 
-                    // Verifica se é para cadastra um nvo registro
+                    // Verifica se é para cadastra um novo registro
                     if($operacao == 'insert'){
                         // Prepara o comando INSERT para ser executado
                         try{
                             $stmt = $pdo->prepare('INSERT INTO trabalho (titulo, ano, numeropaginas, resumo, orientador, coorientador, arquivo) VALUES (:a, :b, :c, :d, :e, :f, :g)');
                             $stmt->execute(array(
-                                ':a' => utf8_decode($requestData['Ttitulo']),
+                                ':a' => utf8_decode($requestData['titulo']),
                                 ':b' => $requestData['ano'],
                                 ':c' => $requestData['numeropaginas'],
                                 ':d' => utf8_decode($requestData['resumo']),
@@ -69,6 +73,19 @@
                                 ':f' => utf8_decode($requestData['coorientador']),
                                 ':g' => $novoNome
                             ));
+                            $sql = $pdo->query("SELECT * FROM trabalho ORDER BY idtrabalho DESC LIMIT 1");
+                            while($resultado=$sql->fetch(PDO::FETCH_ASSOC)){
+                                $IDTRABALHO = $resultado['idtrabalho'];
+                            }
+                            $indice = count(array_filter($requestData['autor']));
+                            for($i=0; $i<$indice ;$i++){
+                                $stmt = $pdo -> prepare('INSERT INTO autor (trabalho_idtrabalho, usuario_idusuario) VALUES (:h, :i)');
+                                $stmt -> execute(array(
+                                    ':h' => $IDTRABALHO,
+                                    ':i' => $requestData['usuario_idusuario'][$i]
+                                ));
+                            }
+                            
                             $retorno = array(
                                 "tipo" => 'success',
                                 "mensagem" => 'Trabalho cadastrado com sucesso.'
@@ -82,7 +99,7 @@
                     } else {
                         // Se minha variável operação estiver vazia então devo gerar os scripts de update
                         try{
-                            $stmt = $pdo->prepare('UPDATE trabalho SET titulo = :a, ano = :b, numeropaginas = :c, resumo = :d, orientador = :e, coorientador = :f, arquivo = :g WHERE idtrabalho = :id');
+                            $stmt = $pdo->prepare('UPDATE trabalho SET titulo= :a, ano = :b, numeropaginas = :c, resumo = :d, orientador = :e, coorientador = :f, arquivo = :g WHERE idtrabalho = :id');
                             $stmt->execute(array(
                                 ':id' => $ID,
                                 ':a' => utf8_decode($requestData['titulo']),
@@ -105,8 +122,6 @@
                         }
                     }
                 }
-
-                // $retorno = array ('mensagem' => 'Arquivo salvo com sucesso em : ' . $destino);
             }
             else
                 $retorno = array ('mensagem' => 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.');

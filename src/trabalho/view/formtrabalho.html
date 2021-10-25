@@ -9,14 +9,15 @@
             <input type="number" name="ano" id="ano" class="form-control">
         </div>
         <div class="col-12 col-md-6">
-            <label>Número de páginas</label>
+            <label>Número de Páginas</label>
             <input type="number" name="numeropaginas" id="numeropaginas" class="form-control">
         </div>
     </div>
     <div class="form-group">
         <label>Resumo</label>
-        <textarea id="resumo" class="form-control" name="resumo" rows="3"></textarea>
+        <textarea id="rsumo" class="form-control" name="Rresumo" rows="3"></textarea>
     </div>
+
     <div class="form-group row">
         <div class="col-12 col-md-6">
             <label>Orientador</label>
@@ -28,10 +29,10 @@
         </div>
     </div>
     <div class="form-group">
-        <input type="text" name="autor" id="autor" class="form-control" placeholder="Digite o nome do autor...">
+        <input type="text" name="autor[]" id="autor" class="form-control" placeholder="Digite o nome do autor...">
     </div>
     <div class="form-group" id="autores"></div>
-    <div class="form-group" id="result"></div>
+    <div class="form-group" id="listar"></div>
     <div class="form-group">
         <label>Arquivo</label>
         <input type="file" name="arquivo" id="arquivo" class="form-control">
@@ -39,6 +40,5 @@
     <input type="hidden" name="idtrabalho" id="idtrabalho">
     <input type="hidden" name="operacao" id="operacao" value="insert">
 </form>
-
-<script src="src/trabalho/controller/findusuario.js"></script>
-<script src="src/trabalho/controller/savetrabalho.js"></script>
+<script src="src/trabalho/controler/findusuario.js"></script>
+<script src="src/trabalho/controler/savetrabalho.js"></script>
