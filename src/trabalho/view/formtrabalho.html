@@ -1,7 +1,7 @@
-<form id="formtrabalho" enctype="multipart/form-data">
+<form id="form-trabalho" enctype="multipart/form-data">
     <div class="form-group">
         <label>Título do trabalho</label>
-        <input type="text" name="nome" id="titulo" class="form-control">
+        <input type="text" name="titulo" id="titulo" class="form-control">
     </div>
     <div class="form-group row">
         <div class="col-12 col-md-6">
@@ -27,17 +27,18 @@
             <input type="text" name="coorientador" id="coorientador" class="form-control">
         </div>
     </div>
-
     <div class="form-group">
-        <input type="text" name="" id="autor" placeholder="Digite" class="form-control">
+        <input type="text" name="autor" id="autor" class="form-control" placeholder="Digite o nome do autor...">
     </div>
     <div class="form-group" id="autores"></div>
-    <div class="form-group" id="listar"></div>
-    <div class="form-group"></div>
-    <label>Arquivo</label>
-    <input type="file" name="arquivo" id="arquivo" class="form-control">
+    <div class="form-group" id="result"></div>
+    <div class="form-group">
+        <label>Arquivo</label>
+        <input type="file" name="arquivo" id="arquivo" class="form-control">
     </div>
-    <input type="hidden" name="idtrabalho " id="idtrabalho ">
+    <input type="hidden" name="idtrabalho" id="idtrabalho">
+    <input type="hidden" name="operacao" id="operacao" value="insert">
 </form>
 
-<script src="src/trabalho/controler/findusuario.js"></script>
+<script src="src/trabalho/controller/findusuario.js"></script>
+<script src="src/trabalho/controller/savetrabalho.js"></script>
