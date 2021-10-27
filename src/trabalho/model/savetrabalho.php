@@ -42,7 +42,7 @@
                 // header('Location: ../../sistema/returnSuccess.php');
                 // Scripts de persistência no banco de dados .....
                 // Obter a nossa conexão com o banco de dados
-                include('../../conexao/con.php');
+                include('../../conexao/conn.php');
 
                 // Obter os dados enviados do formulário via $_REQUEST
                 $requestData = $_REQUEST;
@@ -56,7 +56,7 @@
                     );
                 } else {
                     // Caso não exista campo em vazio, vamos gerar a requisição
-                    $ID = isset($requestData['idtrabalho']) ? $requestData['idtrabalho'] : '';
+                    $id = isset($requestData['idtrabalho']) ? $requestData['idtrabalho'] : '';
                     $operacao = isset($requestData['operacao']) ? $requestData['operacao'] : '';
 
                     // Verifica se é para cadastra um novo registro
@@ -75,13 +75,13 @@
                             ));
                             $sql = $pdo->query("SELECT * FROM trabalho ORDER BY idtrabalho DESC LIMIT 1");
                             while($resultado=$sql->fetch(PDO::FETCH_ASSOC)){
-                                $IDTRABALHO = $resultado['idtrabalho'];
+                                $idtrabalho = $resultado['idtrabalho'];
                             }
-                            $indice = count(array_filter($requestData['autor']));
+                            $indice = count(array_filter($requestData['usuario_idusuario']));
                             for($i=0; $i<$indice ;$i++){
                                 $stmt = $pdo -> prepare('INSERT INTO autor (trabalho_idtrabalho, usuario_idusuario) VALUES (:h, :i)');
                                 $stmt -> execute(array(
-                                    ':h' => $IDTRABALHO,
+                                    ':h' => $idtrabalho,
                                     ':i' => $requestData['usuario_idusuario'][$i]
                                 ));
                             }
@@ -101,7 +101,7 @@
                         try{
                             $stmt = $pdo->prepare('UPDATE trabalho SET titulo= :a, ano = :b, numeropaginas = :c, resumo = :d, orientador = :e, coorientador = :f, arquivo = :g WHERE idtrabalho = :id');
                             $stmt->execute(array(
-                                ':id' => $ID,
+                                ':id' => $id,
                                 ':a' => utf8_decode($requestData['titulo']),
                                 ':b' => $requestData['ano'],
                                 ':c' => $requestData['numeropaginas'],

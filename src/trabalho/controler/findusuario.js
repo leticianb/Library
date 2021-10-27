@@ -8,7 +8,7 @@ function listAuthor() {
 
         $('#listar').append(`
         <div class="alert alert-primary">${nome}</div>
-        <input type="hidden" name="uduario_idusuario" value="${id}">
+        <input type="hidden" name="usuario_idusuario[]" value="${id}">
     `)
         $('#' + id).hide()
     })
