@@ -93,7 +93,7 @@
                         } catch(PDOException $e) {
                             $retorno = array(
                                 "tipo" => 'error',
-                                "mensagem" => 'Não foi possível efetuar o cadastro do trabalho.'
+                                "mensagem" => 'Não foi possível efetuar o cadastro do trabalho.'.$e
                             );
                         }
                     } else {
