@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('.btn-save').click(function(e) {
         e.preventDefault()
-        url = "src/trabalho/model/savetrabalho.php"
+        url = "src/trabalho/model/save-trabalho.php"
         var formData = new FormData(document.getElementById("form-trabalho"))
         $.ajax({
             url: url,

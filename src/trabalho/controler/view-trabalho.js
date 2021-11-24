@@ -36,7 +36,7 @@ $(document).ready(function() {
                         $('#coorientador').attr('readonly', 'true')
                     })
                     $('.btn-save').hide()
-                    $('#modal-trabalho').modal('show')
+                    $('#modaltrabalho').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
                         title: 'Library', // Título da janela SweetAler
